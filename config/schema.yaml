@@ -1,0 +1,11 @@
+allTypes: true
+types:
+  id:
+    allProperties: true
+debug: true
+  # api/config/schema.yaml
+vocabularies:
+  - C:\Users\pappi\api\config\SC2015DI07446_D02.02_CPSV-AP_v2.2.1_RDF_Schema_v1.00.rdf
+  # Generate all types, even if an explicit configuration exists
+  
+
