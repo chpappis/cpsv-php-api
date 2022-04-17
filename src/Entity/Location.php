@@ -19,8 +19,23 @@ class Location
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
+    #[ORM\ManyToOne(targetEntity: PublicOrganisation::class, inversedBy: 'spatial')]
+    private $publicOrganisation;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getPublicOrganisation(): ?PublicOrganisation
+    {
+        return $this->publicOrganisation;
+    }
+
+    public function setPublicOrganisation(?PublicOrganisation $publicOrganisation): self
+    {
+        $this->publicOrganisation = $publicOrganisation;
+
+        return $this;
     }
 }
