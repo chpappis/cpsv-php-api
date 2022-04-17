@@ -20,7 +20,7 @@ class RdfController
         
         switch ($cpsvclass) {
             case 'public_organisations':
-                $params += array('query' => $rdfnamespace.'SELECT DISTINCT ?a WHERE {?a a cv:PublicOrganisation}');
+                $params += array('query' => $rdfnamespace.'SELECT DISTINCT ?PO_uri ?preferredLabel WHERE {?PO_uri a cv:PublicOrganisation. ?PO_uri dct:title ?preferredLabel}');
                 $classexists = 1 ;
                 break;
             case 'public_services':
