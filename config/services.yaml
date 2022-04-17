@@ -25,7 +25,7 @@ services:
 
     # SET PRIORITIES FOR PublicService
     'App\DataProvider\PublicServiceCollectionDataProvider':
-        tags: [ { name: 'api_platform.collection_data_provider', priority: -1 } ]
+        tags: [ { name: 'api_platform.collection_data_provider', priority: 1 } ]
         # Autoconfiguration must be disabled to set a custom priority
         autoconfigure: false
 
