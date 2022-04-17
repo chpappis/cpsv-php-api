@@ -18,7 +18,6 @@ class RdfController
         $rdfnamespace .= 'PREFIX cv: <http://data.europa.eu/m8g/> ';
         $classexists = 0 ;
         
-        $url = false;
         switch ($cpsvclass) {
             case 'public_organisations':
                 $params += array('query' => $rdfnamespace.'SELECT DISTINCT ?a WHERE {?a a cv:PublicOrganisation}');
