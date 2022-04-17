@@ -37,6 +37,12 @@ class PublicOrganisation
         return $this->id;
     }
 
+    // setId needed because of custom data provider PublicOrganisationCollectionDataProvider.php
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
     public function getPreferredLabel(): ?string
     {
         return $this->preferredLabel;

@@ -33,6 +33,12 @@ class PublicService
         return $this->id;
     }
 
+    // setId needed because of custom data provider PublicServiceCollectionDataProvider.php
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
     public function getIdentifier(): ?string
     {
         return $this->identifier;
