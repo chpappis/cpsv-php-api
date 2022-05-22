@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/Evidence
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/Evidence')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/Evidence',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Evidence
 {
     #[ORM\Id]

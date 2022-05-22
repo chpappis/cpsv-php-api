@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://purl.org/vocab/cpsv#PublicService
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://purl.org/vocab/cpsv#PublicService')]
+#[ApiResource(
+    iri: 'http://purl.org/vocab/cpsv#PublicService',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class PublicService
 {
     #[ORM\Id]

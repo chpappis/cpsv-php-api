@@ -13,7 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/Cost
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/Cost')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/Cost',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Cost
 {
     #[ORM\Id]

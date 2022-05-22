@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://purl.org/dc/terms/Location
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://purl.org/dc/terms/Location')]
+#[ApiResource(
+    iri: 'http://purl.org/dc/terms/Location',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Location
 {
     #[ORM\Id]

@@ -11,7 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://www.w3.org/ns/locn#Address
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://www.w3.org/ns/locn#Address')]
+#[ApiResource(
+    iri: 'http://www.w3.org/ns/locn#Address',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
+
 class Address
 {
     #[ORM\Id]

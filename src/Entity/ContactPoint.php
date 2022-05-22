@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see https://schema.org/ContactPoint
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'https://schema.org/ContactPoint')]
+#[ApiResource(
+    iri: 'https://schema.org/ContactPoint',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class ContactPoint
 {
     #[ORM\Id]

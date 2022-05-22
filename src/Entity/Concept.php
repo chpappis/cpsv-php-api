@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://www.w3.org/2004/02/skos/core#Concept
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://www.w3.org/2004/02/skos/core#Concept')]
+#[ApiResource(
+    iri: 'http://www.w3.org/2004/02/skos/core#Concept',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Concept
 {
     #[ORM\Id]

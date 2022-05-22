@@ -14,7 +14,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @see http://data.europa.eu/m8g/BusinessEvent
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/BusinessEvent')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/BusinessEvent',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class BusinessEvent
 {
     #[ORM\Id]

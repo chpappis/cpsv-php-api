@@ -11,7 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://www.w3.org/2004/02/skos/core#Collection
  */
 #[ORM\Entity]
-#[ApiResource(shortName: 'Collection', iri: 'http://www.w3.org/2004/02/skos/core#Collection')]
+#[ApiResource(
+    shortName: 'Collection', 
+    iri: 'http://www.w3.org/2004/02/skos/core#Collection',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Collection_
 {
     #[ORM\Id]

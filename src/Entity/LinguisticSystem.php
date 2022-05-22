@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://purl.org/dc/terms/LinguisticSystem
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://purl.org/dc/terms/LinguisticSystem')]
+#[ApiResource(
+    iri: 'http://purl.org/dc/terms/LinguisticSystem',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class LinguisticSystem
 {
     #[ORM\Id]

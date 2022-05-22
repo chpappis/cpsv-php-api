@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://www.w3.org/ns/adms#Asset
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://www.w3.org/ns/adms#Asset')]
+#[ApiResource(
+    iri: 'http://www.w3.org/ns/adms#Asset',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Asset
 {
     #[ORM\Id]

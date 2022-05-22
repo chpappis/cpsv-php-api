@@ -13,7 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/Channel
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/Channel')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/Channel',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Channel
 {
     #[ORM\Id]

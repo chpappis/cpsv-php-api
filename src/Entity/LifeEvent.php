@@ -13,7 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/LifeEvent
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/LifeEvent')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/LifeEvent',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class LifeEvent
 {
     #[ORM\Id]

@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/CriterionRequirement
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/CriterionRequirement')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/CriterionRequirement',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class CriterionRequirement
 {
     #[ORM\Id]

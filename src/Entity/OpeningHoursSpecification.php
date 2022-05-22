@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see https://schema.org/OpeningHoursSpecification
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'https://schema.org/OpeningHoursSpecification')]
+#[ApiResource(
+    iri: 'https://schema.org/OpeningHoursSpecification',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class OpeningHoursSpecification
 {
     #[ORM\Id]

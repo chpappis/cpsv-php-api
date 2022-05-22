@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://purl.org/dc/terms/Agent
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://purl.org/dc/terms/Agent')]
+#[ApiResource(
+    iri: 'http://purl.org/dc/terms/Agent',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Agent
 {
     #[ORM\Id]

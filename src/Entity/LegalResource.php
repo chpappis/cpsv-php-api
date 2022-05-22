@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/eli/ontology#LegalResource
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/eli/ontology#LegalResource')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/eli/ontology#LegalResource',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class LegalResource
 {
     #[ORM\Id]

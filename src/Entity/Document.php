@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://xmlns.com/foaf/0.1/Document
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://xmlns.com/foaf/0.1/Document')]
+#[ApiResource(
+    iri: 'http://xmlns.com/foaf/0.1/Document',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Document
 {
     #[ORM\Id]

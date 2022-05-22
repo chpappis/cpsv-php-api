@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://purl.org/vocab/cpsv#Rule
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://purl.org/vocab/cpsv#Rule')]
+#[ApiResource(
+    iri: 'http://purl.org/vocab/cpsv#Rule',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class Rule
 {
     #[ORM\Id]

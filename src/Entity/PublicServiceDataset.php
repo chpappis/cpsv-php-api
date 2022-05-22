@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @see http://data.europa.eu/m8g/PublicServiceDataset
  */
 #[ORM\Entity]
-#[ApiResource(iri: 'http://data.europa.eu/m8g/PublicServiceDataset')]
+#[ApiResource(
+    iri: 'http://data.europa.eu/m8g/PublicServiceDataset',
+    collectionOperations: ['get','post'],
+    itemOperations: ['get','put','delete'],
+)]
 class PublicServiceDataset
 {
     #[ORM\Id]
