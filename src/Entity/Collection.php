@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
     collectionOperations: ['get','post'],
     itemOperations: ['get','put','delete'],
 )]
-class Collection_
+class Collection
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
