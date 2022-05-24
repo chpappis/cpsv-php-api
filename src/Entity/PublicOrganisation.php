@@ -28,7 +28,7 @@ class PublicOrganisation
     #[ORM\Column(type: 'string', length: 255)]
     private $preferredLabel;
 
-    #[ORM\OneToMany(mappedBy: 'publicOrganisation', targetEntity: Location::class)]
+    #[ORM\ManyToMany(targetEntity: Location::class)]
     private $spatial;
 
     public function __construct()
@@ -36,6 +36,7 @@ class PublicOrganisation
         $this->spatial = new ArrayCollection();
     }
 
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -71,7 +72,6 @@ class PublicOrganisation
     {
         if (!$this->spatial->contains($spatial)) {
             $this->spatial[] = $spatial;
-            $spatial->setPublicOrganisation($this);
         }
 
         return $this;
@@ -79,13 +79,10 @@ class PublicOrganisation
 
     public function removeSpatial(Location $spatial): self
     {
-        if ($this->spatial->removeElement($spatial)) {
-            // set the owning side to null (unless already changed)
-            if ($spatial->getPublicOrganisation() === $this) {
-                $spatial->setPublicOrganisation(null);
-            }
-        }
+        $this->spatial->removeElement($spatial);
 
         return $this;
     }
+
+    
 }
