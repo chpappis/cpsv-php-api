@@ -27,6 +27,18 @@ final class Version20220524181624 extends AbstractMigration
         $this->addSql("INSERT INTO output (identifier, name, description) VALUES('Ou0005','Διαβατήριο με διάρκεια 3 μήνες', 'Το διαβατήριο με διάρκεια 3 μήνες χορηγείται στις περιπτώσεις μεταγωγή κρατουμένου από σωφρονιστικό κατάστημα της αλλοδαπής στην ημεδαπή και αντιστρόφως')");
         $this->addSql("INSERT INTO output (identifier, name, description) VALUES('Ou0006','Διαβατήριο με διάρκεια ίδια με αυτού που αντικαθίσταται', 'Το διαβατήριο με διάρκεια ίδια αυτού που αντικαθίσταται χορηγείται στις περιπτώσεις αντικατάστασης διαβατηρίου.')");
 
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('1','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('1','168')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('2','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('2','168')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('3','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('3','168')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('4','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('4','168')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('5','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('5','168')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('6','162')");
+        $this->addSql("INSERT INTO output_concept (output_id, concept_id) VALUES('6','168')");
 
     }
 
