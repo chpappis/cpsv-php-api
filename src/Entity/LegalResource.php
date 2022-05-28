@@ -28,6 +28,15 @@ class LegalResource
     #[ORM\ManyToMany(targetEntity: self::class)]
     private $Related;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $identifier;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $description;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $name;
+
     public function __construct()
     {
         $this->Related = new ArrayCollection();
@@ -58,6 +67,42 @@ class LegalResource
     public function removeRelated(self $related): self
     {
         $this->Related->removeElement($related);
+
+        return $this;
+    }
+
+    public function getIdentifier(): ?string
+    {
+        return $this->identifier;
+    }
+
+    public function setIdentifier(?string $identifier): self
+    {
+        $this->identifier = $identifier;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
