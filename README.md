@@ -4,7 +4,7 @@ Built with
 ------------
 
 * [Symfony][1] **PHP framework**.
-* [Api Plaform][2] **API framework**.
+* [Api Platform][2] **API framework**.
 
   [1]: https://symfony.com
   [2]: https://api-platform.com/
