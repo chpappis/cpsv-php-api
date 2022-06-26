@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,24 +24,31 @@ class Evidence
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
+    #[Groups("publicservicegroup")]
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups("publicservicegroup")]
     private $description;
 
     #[ORM\ManyToOne(targetEntity: Concept::class)]
+    #[Groups("publicservicegroup")]
     private $type;
 
     #[ORM\ManyToMany(targetEntity: Document::class)]
+    #[Groups("publicservicegroup")]
     private $relatedDocumentation;
 
     #[ORM\ManyToMany(targetEntity: LinguisticSystem::class)]
+    #[Groups("publicservicegroup")]
     private $language;
 
     public function __construct()

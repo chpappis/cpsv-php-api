@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,98 +18,126 @@ use Doctrine\ORM\Mapping as ORM;
     iri: 'http://purl.org/vocab/cpsv#PublicService',
     collectionOperations: ['get','post'],
     itemOperations: ['get','put','delete'],
+    normalizationContext: ['groups' => ['publicservicegroup']],
 )]
 class PublicService
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
+    #[Groups("publicservicegroup")]
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $description;
 
     #[ORM\Column(type: 'dateinterval', nullable: true)]
+    #[Groups("publicservicegroup")]
     private $processingTime;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups("publicservicegroup")]
     private $keyword;
 
     #[ORM\ManyToMany(targetEntity: Concept::class)]
     #[ORM\JoinTable(name:"public_service_concept_sector")]
+    #[Groups("publicservicegroup")]
     private $sector;
 
     #[ORM\ManyToMany(targetEntity: Concept::class)]
     #[ORM\JoinTable(name:"public_service_concept_thematicArea")]
+    #[Groups("publicservicegroup")]
     private $thematicArea;
 
     #[ORM\ManyToMany(targetEntity: Concept::class)]
     #[ORM\JoinTable(name:"public_service_concept_type")]
+    #[Groups("publicservicegroup")]
     private $type;
 
     #[ORM\ManyToMany(targetEntity: LinguisticSystem::class)]
+    #[Groups("publicservicegroup")]
     private $language;
 
     #[ORM\ManyToOne(targetEntity: Concept::class)]
     #[ORM\JoinTable(name:"public_service_concept_status")]
+    #[Groups("publicservicegroup")]
     private $status;
 
     #[ORM\ManyToMany(targetEntity: Event::class)]
+    #[Groups("publicservicegroup")]
     private $isGroupedBy;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
     #[ORM\JoinTable(name:"public_service_public_service_requires")]
+    #[Groups("publicservicegroup")]
     private $requires;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
     #[ORM\JoinTable(name:"public_service_public_service_related")]
+    #[Groups("publicservicegroup")]
     private $related;
 
     #[ORM\ManyToMany(targetEntity: CriterionRequirement::class)]
+    #[Groups("publicservicegroup")]
     private $hasCriterion;
 
     #[ORM\ManyToOne(targetEntity: PublicOrganisation::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups("publicservicegroup")]
     private $hasCompetentAuthority;
 
     #[ORM\ManyToMany(targetEntity: Participation::class)]
+    #[Groups("publicservicegroup")]
     private $hasParticipation;
 
     #[ORM\ManyToMany(targetEntity: Evidence::class)]
+    #[Groups("publicservicegroup")]
     private $hasInput;
 
     #[ORM\ManyToMany(targetEntity: LegalResource::class)]
+    #[Groups("publicservicegroup")]
     private $hasLegalResource;
 
     #[ORM\ManyToMany(targetEntity: Output::class)]
+    #[Groups("publicservicegroup")]
     private $produces;
 
     #[ORM\ManyToMany(targetEntity: Rule::class)]
+    #[Groups("publicservicegroup")]
     private $follows;
 
     #[ORM\ManyToMany(targetEntity: Location::class)]
+    #[Groups("publicservicegroup")]
     private $spatial;
 
     #[ORM\ManyToMany(targetEntity: ContactPoint::class)]
+    #[Groups("publicservicegroup")]
     private $hasContactPoint;
 
     #[ORM\ManyToMany(targetEntity: Channel::class)]
+    #[Groups("publicservicegroup")]
     private $hasChannel;
 
     #[ORM\ManyToMany(targetEntity: Cost::class)]
+    #[Groups("publicservicegroup")]
     private $hasCost;
 
     #[ORM\ManyToMany(targetEntity: PublicServiceDataset::class)]
+    #[Groups("publicservicegroup")]
     private $isDescribedAt;
 
     #[ORM\ManyToMany(targetEntity: Concept::class)]
     #[ORM\JoinTable(name:"public_service_concept_isClassifiedBy")]
+    #[Groups("publicservicegroup")]
     private $isClassifiedBy;
 
     public function __construct()

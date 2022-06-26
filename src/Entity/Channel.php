@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,24 +26,31 @@ class Channel
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
+    #[Groups("publicservicegroup")]
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\ManyToMany(targetEntity: Agent::class)]
+    #[Groups("publicservicegroup")]
     private $ownedBy;
 
     #[ORM\ManyToOne(targetEntity: Concept::class)]
+    #[Groups("publicservicegroup")]
     private $type;
 
     #[ORM\ManyToMany(targetEntity: Evidence::class)]
+    #[Groups("publicservicegroup")]
     private $hasInput;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups("publicservicegroup")]
     private $openingHours;
 
     #[ORM\ManyToOne(targetEntity: OpeningHoursSpecification::class)]
+    #[Groups("publicservicegroup")]
     private $availabilityRestriction;
 
     public function __construct()
