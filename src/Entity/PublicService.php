@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @see http://purl.org/vocab/cpsv#PublicService
@@ -19,7 +21,19 @@ use Doctrine\ORM\Mapping as ORM;
     collectionOperations: ['get','post'],
     itemOperations: ['get','put','delete'],
     normalizationContext: ['groups' => ['publicservicegroup']],
+    attributes: ["force_eager"=>false]
 )]
+//#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'identifier' => 'exact', 'name' => 'partial'])]
+//#[ApiFilter(SearchFilter::class, strategy: 'partial')]
+#[ApiFilter(SearchFilter::class, properties: ['identifier' => 'exact', 
+                                                'name' => 'exact', 
+                                                'description' => 'partial',
+                                                'hasCompetentAuthority.preferredLabel' => 'exact',
+                                                'isGroupedBy.name' => 'exact',
+                                                'produces.name' => 'exact',
+                                                'requires.name' => 'exact',
+                                                'related.name' => 'exact'
+                                                ])]
 class PublicService
 {
     #[ORM\Id]
