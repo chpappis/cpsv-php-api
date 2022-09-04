@@ -28,11 +28,11 @@ class PublicOrganisation
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $preferredLabel;
 
     #[ORM\ManyToMany(targetEntity: Location::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $spatial;
 
     public function __construct()

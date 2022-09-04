@@ -28,19 +28,19 @@ class LegalResource
     private ?int $id = null;
 
     #[ORM\ManyToMany(targetEntity: self::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $Related;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $description;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $name;
 
     public function __construct()

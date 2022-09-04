@@ -30,27 +30,27 @@ class Cost
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $value;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $description;
 
     #[ORM\ManyToOne(targetEntity: Concept::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $currency;
 
     #[ORM\ManyToMany(targetEntity: PublicOrganisation::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $isDefinedBy;
 
     #[ORM\ManyToOne(targetEntity: Channel::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $ifAccessedThrough;
 
     public function __construct()

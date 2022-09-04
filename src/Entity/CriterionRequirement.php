@@ -28,15 +28,15 @@ class CriterionRequirement
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $name;
 
     #[ORM\ManyToMany(targetEntity: Concept::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $type;
 
     public function __construct()

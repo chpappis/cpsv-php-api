@@ -28,11 +28,18 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 #[ApiFilter(SearchFilter::class, properties: ['identifier' => 'exact', 
                                                 'name' => 'exact', 
                                                 'description' => 'partial',
+                                                'hasCompetentAuthority.id' => 'exact',
                                                 'hasCompetentAuthority.preferredLabel' => 'exact',
+                                                'isGroupedBy.id' => 'exact',
                                                 'isGroupedBy.name' => 'exact',
+                                                'produces.id' => 'exact',
                                                 'produces.name' => 'exact',
+                                                'requires.id' => 'exact',
                                                 'requires.name' => 'exact',
-                                                'related.name' => 'exact'
+                                                'related.id' => 'exact',
+                                                'related.name' => 'exact',
+                                                'hasInput.id' => 'exact',
+                                                'hasInput.name' => 'exact'
                                                 ])]
 class PublicService
 {

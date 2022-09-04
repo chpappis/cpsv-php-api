@@ -28,23 +28,23 @@ class Rule
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $description;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $name;
 
     #[ORM\ManyToMany(targetEntity: LinguisticSystem::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $language;
 
     #[ORM\ManyToMany(targetEntity: LegalResource::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $implements;
 
     public function __construct()

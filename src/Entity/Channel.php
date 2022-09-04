@@ -30,27 +30,27 @@ class Channel
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $identifier;
 
     #[ORM\ManyToMany(targetEntity: Agent::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $ownedBy;
 
     #[ORM\ManyToOne(targetEntity: Concept::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $type;
 
     #[ORM\ManyToMany(targetEntity: Evidence::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $hasInput;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $openingHours;
 
     #[ORM\ManyToOne(targetEntity: OpeningHoursSpecification::class)]
-    #[Groups("publicservicegroup")]
+    //#[Groups("publicservicegroup")]
     private $availabilityRestriction;
 
     public function __construct()
