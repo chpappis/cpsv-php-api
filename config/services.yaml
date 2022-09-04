@@ -26,13 +26,13 @@ services:
     # SET PRIORITIES FOR PublicService
     # -1 to not use custom data provider
     'App\DataProvider\PublicServiceCollectionDataProvider':
-        tags: [ { name: 'api_platform.collection_data_provider', priority: -1 } ]
+        tags: [ { name: 'api_platform.collection_data_provider', priority: -1 } ] #Switch -1:disconnect uom sparql, 1:connect uom sparql
         # Autoconfiguration must be disabled to set a custom priority
         autoconfigure: false
 
     # SET PRIORITIES FOR PublicOrganisation
     'App\DataProvider\PublicOrganisationCollectionDataProvider':
-        tags: [ { name: 'api_platform.collection_data_provider', priority: 1 } ]
+        tags: [ { name: 'api_platform.collection_data_provider', priority: -1 } ] #Switch -1:disconnect uom sparql, 1:connect uom sparql
         # Autoconfiguration must be disabled to set a custom priority
         autoconfigure: false
 
